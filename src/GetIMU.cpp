@@ -33,7 +33,7 @@ void GetIMU::loop() {
 	if(!started)
 		return;
 #if defined(ARDUINO_ARCH_ESP32)
-	Wire.reset();
+	//Wire.reset();
 #endif
 	e = bno->getVector(Adafruit_BNO055::VECTOR_EULER);
 	a = bno->getVector(Adafruit_BNO055::VECTOR_LINEARACCEL);
@@ -43,7 +43,7 @@ void GetIMU::loop() {
 
 }
 void GetIMU::startSensor(){
-	Wire.reset();
+	//Wire.reset();
 	if(bno==NULL)
 		bno = new Adafruit_BNO055();
 	started=bno->begin(Adafruit_BNO055::OPERATION_MODE_NDOF_FMC_OFF);
