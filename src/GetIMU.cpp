@@ -26,22 +26,19 @@ void GetIMU::loop() {
 	//Wire.reset();
 	//bno->begin(Adafruit_BNO055::OPERATION_MODE_NDOF_FMC_OFF);
 #endif
-	imu::Vector<3>e = bno->getVector(Adafruit_BNO055::VECTOR_EULER);
 	imu::Vector<3> a = bno->getVector(Adafruit_BNO055::VECTOR_LINEARACCEL);
-	imu::Vector<3>v = bno->getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
-	imu::Vector<3>g = bno->getVector(Adafruit_BNO055::VECTOR_GRAVITY);
-
 	bufferINTERNAL[0] = a.x();
 	bufferINTERNAL[1] = a.y();
 	bufferINTERNAL[2] = a.z();
+	imu::Vector<3>v = bno->getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
 	bufferINTERNAL[3] = v.x();
 	bufferINTERNAL[4] = v.y();
 	bufferINTERNAL[5] = v.z();
-
+	imu::Vector<3>g = bno->getVector(Adafruit_BNO055::VECTOR_GRAVITY);
 	bufferINTERNAL[6] = g.x();
 	bufferINTERNAL[7] = g.y();
 	bufferINTERNAL[8] = g.z();
-
+	imu::Vector<3>e = bno->getVector(Adafruit_BNO055::VECTOR_EULER);
 	bufferINTERNAL[9] = e.z();
 	bufferINTERNAL[10] = e.y();
 	bufferINTERNAL[11] = e.x();
