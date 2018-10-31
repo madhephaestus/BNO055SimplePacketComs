@@ -8,19 +8,21 @@
 #ifndef LIBRARIES_MEDIUMKATFIRMWARE_SRC_GETIMU_H_
 #define LIBRARIES_MEDIUMKATFIRMWARE_SRC_GETIMU_H_
 
-#define BNO055_SAMPLERATE_DELAY_MS (1)
+
 #include <SimplePacketComs.h>
 
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>
 #include <utility/imumaths.h>
+#define NUM_IMU_VALUES 12
 class GetIMU: public PacketEventAbstract {
 private:
 	Adafruit_BNO055 * bno;
-	imu::Vector<3> v;
-	imu::Vector<3> a;
-	imu::Vector<3> g;
-	imu::Vector<3> e;
+//	imu::Vector<3> v;
+//	imu::Vector<3> a;
+//	imu::Vector<3> g;
+//	imu::Vector<3> e;
+	float  bufferINTERNAL[NUM_IMU_VALUES];
 	bool started;
 public:
 	// Packet ID needs to be set
@@ -35,7 +37,7 @@ public:
 	// User data is written into the buffer to send it back
 	void event(float * buffer);
 	void loop();
-	void startSensor();
+	void startSensor(Adafruit_BNO055 * _bno);
 	void print();
 };
 
