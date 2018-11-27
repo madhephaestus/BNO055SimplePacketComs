@@ -22,8 +22,9 @@ private:
 //	imu::Vector<3> a;
 //	imu::Vector<3> g;
 //	imu::Vector<3> e;
-	float  bufferINTERNAL[NUM_IMU_VALUES];
+	volatile float  bufferINTERNAL[NUM_IMU_VALUES];
 	bool started;
+	int updateIndex=0;
 public:
 	// Packet ID needs to be set
 	GetIMU() :
