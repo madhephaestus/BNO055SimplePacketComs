@@ -49,7 +49,6 @@ void GetIMU::loop() {
 		bufferINTERNAL[9] = e.z();
 		bufferINTERNAL[10] = e.y();
 		bufferINTERNAL[11] = e.x();
-
 	}
 	updateIndex++;
 	if (updateIndex == 4) {
