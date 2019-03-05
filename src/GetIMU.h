@@ -40,6 +40,19 @@ public:
 	void loop();
 	void startSensor(Adafruit_BNO055 * _bno);
 	void print();
+
+	float getLINEARACCEL_X();
+	float getLINEARACCEL_Y();
+	float getLINEARACCEL_Z();
+	float getGYROSCOPE_X();
+	float getGYROSCOPE_Y();
+	float getGYROSCOPE_Z();
+	float getGRAVITY_X();
+	float getGRAVITY_Y();
+	float getGRAVITY_Z();
+	float getEULER_X();
+	float getEULER_Y();
+	float getEULER_Z();
 };
 
 

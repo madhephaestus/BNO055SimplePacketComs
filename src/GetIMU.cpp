@@ -55,6 +55,43 @@ void GetIMU::loop() {
 		updateIndex = 0;
 	}
 }
+float GetIMU::getLINEARACCEL_X() {
+	return bufferINTERNAL[0];
+}
+float GetIMU::getLINEARACCEL_Y() {
+	return bufferINTERNAL[1];
+}
+float GetIMU::getLINEARACCEL_Z() {
+	return bufferINTERNAL[2];
+}
+float GetIMU::getGYROSCOPE_X() {
+	return bufferINTERNAL[3];
+}
+float GetIMU::getGYROSCOPE_Y() {
+	return bufferINTERNAL[4];
+}
+float GetIMU::getGYROSCOPE_Z() {
+	return bufferINTERNAL[5];
+}
+float GetIMU::getGRAVITY_X() {
+	return bufferINTERNAL[6];
+}
+float GetIMU::getGRAVITY_Y() {
+	return bufferINTERNAL[7];
+}
+float GetIMU::getGRAVITY_Z() {
+	return bufferINTERNAL[8];
+}
+float GetIMU::getEULER_X() {
+	return bufferINTERNAL[11];
+}
+float GetIMU::getEULER_Y() {
+	return bufferINTERNAL[10];
+}
+float GetIMU::getEULER_Z() {
+	return bufferINTERNAL[9];
+}
+
 void GetIMU::startSensor(Adafruit_BNO055 * _bno) {
 
 	bno = _bno;
