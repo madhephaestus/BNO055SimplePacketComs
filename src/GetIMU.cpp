@@ -28,27 +28,27 @@ void GetIMU::loop() {
 	switch (updateIndex) {
 	case (0):
 		a = bno->getVector(Adafruit_BNO055::VECTOR_LINEARACCEL);
-		bufferINTERNAL[0] = a.x();
+		bufferINTERNAL[0] = a.z();
 		bufferINTERNAL[1] = a.y();
-		bufferINTERNAL[2] = a.z();
+		bufferINTERNAL[2] = a.x();
 		break;
 	case (1):
 		v = bno->getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
-		bufferINTERNAL[3] = v.x();
+		bufferINTERNAL[3] = v.z();
 		bufferINTERNAL[4] = v.y();
-		bufferINTERNAL[5] = v.z();
+		bufferINTERNAL[5] = v.x();
 		break;
 	case 2:
 		g = bno->getVector(Adafruit_BNO055::VECTOR_GRAVITY);
-		bufferINTERNAL[6] = g.x();
+		bufferINTERNAL[6] = g.z();
 		bufferINTERNAL[7] = g.y();
-		bufferINTERNAL[8] = g.z();
+		bufferINTERNAL[8] = g.x();
 		break;
 	case 3:
 		e = bno->getVector(Adafruit_BNO055::VECTOR_EULER);
-		bufferINTERNAL[9] = e.z();
-		bufferINTERNAL[10] = e.y();
-		bufferINTERNAL[11] = e.x();
+		bufferINTERNAL[9] = e.z();// tilt
+		bufferINTERNAL[10] = e.y();// elevation
+		bufferINTERNAL[11] = e.x();// azimuth
 	}
 	updateIndex++;
 	if (updateIndex == 4) {
@@ -82,13 +82,13 @@ float GetIMU::getGRAVITY_Y() {
 float GetIMU::getGRAVITY_Z() {
 	return bufferINTERNAL[8];
 }
-float GetIMU::getEULER_X() {
+float GetIMU::getEULER_azimuth() {
 	return bufferINTERNAL[11];
 }
-float GetIMU::getEULER_Y() {
+float GetIMU::getEULER_elevation() {
 	return bufferINTERNAL[10];
 }
-float GetIMU::getEULER_Z() {
+float GetIMU::getEULER_tilt() {
 	return bufferINTERNAL[9];
 }
 

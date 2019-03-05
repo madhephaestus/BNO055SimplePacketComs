@@ -50,9 +50,9 @@ public:
 	float getGRAVITY_X();
 	float getGRAVITY_Y();
 	float getGRAVITY_Z();
-	float getEULER_X();
-	float getEULER_Y();
-	float getEULER_Z();
+	float getEULER_azimuth();
+	float getEULER_elevation();
+	float getEULER_tilt();
 };
 
 
