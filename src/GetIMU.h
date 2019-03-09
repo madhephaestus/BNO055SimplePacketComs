@@ -14,7 +14,7 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BNO055.h>
 #include <utility/imumaths.h>
-#define NUM_IMU_VALUES 12
+#define NUM_IMU_VALUES 15
 class GetIMU: public PacketEventAbstract {
 private:
 	Adafruit_BNO055 * bno;
@@ -32,6 +32,9 @@ public:
 {
 		started=false;
 		bno=NULL;
+		setXPosition(0);
+		setYPosition(0);
+		setZPosition(0);
 }
 	//User function to be called when a packet comes in
 	// Buffer contains data from the packet cming in at the start of the function
@@ -53,6 +56,10 @@ public:
 	float getEULER_azimuth();
 	float getEULER_elevation();
 	float getEULER_tilt();
+
+	void setXPosition(float x);
+	void setYPosition(float y);
+	void setZPosition(float z);
 };
 
 

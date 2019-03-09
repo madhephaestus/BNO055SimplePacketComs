@@ -55,6 +55,15 @@ void GetIMU::loop() {
 		updateIndex = 0;
 	}
 }
+void GetIMU::setXPosition(float x){
+	bufferINTERNAL[12] =x;
+}
+void GetIMU::setYPosition(float y){
+	bufferINTERNAL[13] =y;
+}
+void GetIMU::setZPosition(float z){
+	bufferINTERNAL[14] =z;
+}
 float GetIMU::getLINEARACCEL_X() {
 	return bufferINTERNAL[0];
 }
@@ -104,16 +113,16 @@ void GetIMU::print() {
 		return;
 	Serial.print(
 			""
-//			+"\r\n Acceleration= "
-//			+String(bufferINTERNAL[0])+" , "
-//			+String(bufferINTERNAL[1])+" , "
-//			+String(bufferINTERNAL[2])+"\r\n Gyro= "
-//			+String(bufferINTERNAL[3])+" , "
-//			+String(bufferINTERNAL[4])+" , "
-//			+String(bufferINTERNAL[5])+"\r\n Gravity= "
-//			+String(bufferINTERNAL[6])+" , "
-//			+String(bufferINTERNAL[7])+" , "
-//			+String(bufferINTERNAL[8])+
+			+"\r\n Acceleration= "
+			+String(bufferINTERNAL[0])+" , "
+			+String(bufferINTERNAL[1])+" , "
+			+String(bufferINTERNAL[2])+"\r\n Gyro= "
+			+String(bufferINTERNAL[3])+" , "
+			+String(bufferINTERNAL[4])+" , "
+			+String(bufferINTERNAL[5])+"\r\n Gravity= "
+			+String(bufferINTERNAL[6])+" , "
+			+String(bufferINTERNAL[7])+" , "
+			+String(bufferINTERNAL[8])+
 					"\r\n Euler= " + String(bufferINTERNAL[9]) + " , "
 					+ String(bufferINTERNAL[10]) + " , "
 					+ String(bufferINTERNAL[11]) + "\r\n ");
