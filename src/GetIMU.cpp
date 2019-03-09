@@ -111,19 +111,7 @@ void GetIMU::startSensor(Adafruit_BNO055 * _bno) {
 void GetIMU::print() {
 	if (!started)
 		return;
-	Serial.print(
-			""
-			+"\r\n Acceleration= "
-			+String(bufferINTERNAL[0])+" , "
-			+String(bufferINTERNAL[1])+" , "
-			+String(bufferINTERNAL[2])+"\r\n Gyro= "
-			+String(bufferINTERNAL[3])+" , "
-			+String(bufferINTERNAL[4])+" , "
-			+String(bufferINTERNAL[5])+"\r\n Gravity= "
-			+String(bufferINTERNAL[6])+" , "
-			+String(bufferINTERNAL[7])+" , "
-			+String(bufferINTERNAL[8])+
-					"\r\n Euler= " + String(bufferINTERNAL[9]) + " , "
+	Serial.print("\r\n Euler= " + String(bufferINTERNAL[9]) + " , "
 					+ String(bufferINTERNAL[10]) + " , "
 					+ String(bufferINTERNAL[11]) + "\r\n ");
 	/* Display calibration status for each sensor. */
