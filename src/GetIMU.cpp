@@ -18,7 +18,7 @@ void GetIMU::event(float * buffer) {
 	}
 
 }
-void GetIMU::loop() {
+bool GetIMU::loop() {
 	if (!started)
 		return;
 	imu::Vector<3> a;
